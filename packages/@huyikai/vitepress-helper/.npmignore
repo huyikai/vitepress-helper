@@ -1,0 +1,3 @@
+# 排除 lib文件
+lib/
+tsconfig.json

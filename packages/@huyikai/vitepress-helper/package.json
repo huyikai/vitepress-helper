@@ -1,0 +1,44 @@
+{
+  "author": "huyikai",
+  "bugs": {
+    "url": "https://github.com/huyikai/vitepress-helper/issues"
+  },
+  "dependencies": {
+    "workspace": "^0.0.1-preview.1"
+  },
+  "description": "enhance vitepress experience",
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.1",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^18.16.3",
+    "fs-extra": "^10.1.0",
+    "globby": "^11.0.1",
+    "gray-matter": "^4.0.2",
+    "rollup": "^3.21.5",
+    "typescript": "^5.0.4"
+  },
+  "homepage": "https://github.com/huyikai/vitepress-helper",
+  "keywords": [
+    "vite",
+    "vitepress",
+    "vitepress-helper"
+  ],
+  "license": "MIT",
+  "main": "dist/index.esm.js",
+  "module": "dist/index.esm.js",
+  "name": "@huyikai/vitepress-helper",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huyikai/vitepress-helper"
+  },
+  "scripts": {
+    "build": "rollup --config rollup.config.ts --configPlugin typescript"
+  },
+  "type": "module",
+  "types": "dist/lib/index.d.ts",
+  "version": "0.0.1"
+}
