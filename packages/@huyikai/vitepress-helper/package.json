@@ -4,6 +4,7 @@
     "url": "https://github.com/huyikai/vitepress-helper/issues"
   },
   "dependencies": {
+    "tslib": "^2.3.1",
     "workspace": "^0.0.1-preview.1"
   },
   "description": "enhance vitepress experience",
