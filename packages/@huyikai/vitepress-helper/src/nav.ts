@@ -1,5 +1,5 @@
 import type { InitParams } from './../types/init';
-// import { treeToArray } from 'tree-conver';
+import { treeToArray } from 'tree-conver';
 // import { tree2array } from '@axolo/tree-array';
 interface NavParams extends InitParams {
   pages: Array<{ link: string }>;
@@ -60,7 +60,7 @@ export default (params: NavParams) => {
     };
     const tree = generateTree(links);
     console.log(JSON.stringify(tree));
-    // console.log(treeToArray(tree));
+    console.log(treeToArray(tree));
     // console.log(tree2array(tree));
     // for (let a of pagesFiltered) {
     //   let link = a.link.split(`${directory}/`)[1];

@@ -1,10 +1,10 @@
-// import treeToArray from 'tree-conver';
+import treeToArray from 'tree-conver';
 import vitepressHelper from '@huyikai/vitepress-helper';
 export default async () => {
   const instance: any = await vitepressHelper({
     directory: 'example'
   });
-  // console.log('treeToArray', treeToArray([]));
+  console.log('treeToArray', treeToArray([]));
   return {
     base: '/vitepress-helper/',
     title: 'vitepres-helper',
