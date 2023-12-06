@@ -1,13 +1,13 @@
 {
-    // 继承自tsconfig.base.json
-    "extends": "./tsconfig.base.json",
-    // 编译选项
-    "compilerOptions": {
-      // 启用esModuleInterop选项，使得默认导出的模块可以像命名导出一样被导入
-      "esModuleInterop": true,
-      "declaration": true, // 生成 `.d.ts` 文件
-      "outDir": "./dist", // 编译后生成的文件目录
-      // 启用resolveJsonModule选项，使得可以import .json文件
-      "resolveJsonModule": true
-    }
-  }
+  // 继承自tsconfig.base.json
+  "extends": "./tsconfig.base.json",
+  // 编译选项
+  "compilerOptions": {
+    "outDir": "./lib/types", // 编译后生成的文件目录
+  },
+  "exclude": [
+    "**/node_modules/**",
+    "**/lib/**",
+    "**.config.ts"
+  ]
+}

@@ -1,3 +1,4 @@
+import type { InitParams } from './../types/init';
 interface childrenItemsType {
   text: string;
   key: string;
@@ -16,31 +17,29 @@ interface pagesType {
 }
 // /**
 //  * @param pages
-//  * @param root
+//  * @param directory
 //  * @param collapsible
 //  * @returns {Array}
 //  */
-interface Params {
+export interface SidebarParams extends InitParams {
   pages: Array<pagesType>;
-  root: string;
-  collapsible: boolean;
 }
-export default (params: Params) => {
-  const { pages, root = 'docs', collapsible = true } = params;
+export default (params: SidebarParams) => {
+  const { pages, directory, collapsible } = params;
   let rootNameList: Array<string> = [];
   let childrenList: any = [];
 
   for (let a of pages) {
     // generate root dir name list
     let rootName = a.link
-      .replace(`${root}/`, '')
+      .replace(`${directory}/`, '')
       .split('/')
       .filter((i: string, n: number) => i.indexOf('.md') < 0 && n < 2)
       .join('/');
     if (rootName.indexOf('/') >= 0) {
       rootNameList.push(rootName);
     }
-    let urls = a.link.replace(`${root}/`, '').split('/');
+    let urls = a.link.replace(`${directory}/`, '').split('/');
     for (let i = 0, len = urls.length; i < len; i++) {
       let b = urls[i];
       let obj = {
