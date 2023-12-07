@@ -1,4 +1,5 @@
 import type { InitParams } from './../types/init';
+import { sortArray } from './utils/commonHelpers';
 interface childrenItemsType {
   text: string;
   key: string;
@@ -53,19 +54,8 @@ export default (params: SidebarParams) => {
   }
   rootNameList = rootNameList.filter((i: string) => !['', '/'].includes(i));
   rootNameList.sort();
-  // compare
-  function compare(obj1: any, obj2: any) {
-    var val1 = obj1.text;
-    var val2 = obj2.text;
-    if (val1 < val2) {
-      return -1;
-    } else if (val1 > val2) {
-      return 1;
-    } else {
-      return 0;
-    }
-  }
-  childrenList = childrenList.sort(compare);
+
+  childrenList = sortArray(childrenList, 'text');
   // 去重
   function unique(arr: Array<any>, unikey = '') {
     const res: any = new Map();

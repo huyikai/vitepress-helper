@@ -2,18 +2,12 @@ import { arrayToTree, treeToArray } from 'tree-conver';
 
 import type { InitParams } from './../types/init';
 import { generateTree } from './utils/navHelpers';
+import { sortArray } from './utils/commonHelpers';
 import { v4 as uuidv4 } from 'uuid';
 
 interface NavParams extends InitParams {
   pages: Array<{ link: string }>;
 }
-
-const sortArray = (array: [], field: string) => {
-  const compare = (obj1: any, obj2: any) => {
-    return obj1[field].localeCompare(obj2.link);
-  };
-  return array.sort(compare);
-};
 
 export default (params: NavParams) => {
   const { pages, directory } = params;
