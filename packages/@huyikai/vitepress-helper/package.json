@@ -8,8 +8,8 @@
     "fs-extra": "^10.1.0",
     "globby": "^11.0.1",
     "gray-matter": "^4.0.2",
-    "uuid": "^9.0.1",
-    "tree-conver": "^0.0.95"
+    "tree-conver": "^0.0.95",
+    "uuid": "^9.0.1"
   },
   "description": "enhance vitepress experience",
   "devDependencies": {
@@ -49,5 +49,5 @@
   },
   "type": "module",
   "types": "lib/types/index.d.ts",
-  "version": "0.0.1"
+  "version": "0.0.2"
 }

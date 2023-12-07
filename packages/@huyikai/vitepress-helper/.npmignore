@@ -1,5 +1,5 @@
-# 排除 lib文件
-lib/
+src/
+types/
 tsconfig.json
 tsconfig.base.json
 rollup.config.ts
