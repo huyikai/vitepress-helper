@@ -1,115 +1,81 @@
+import { arrayToTree, treeToArray } from 'tree-conver';
+
 import type { InitParams } from './../types/init';
-import { treeToArray } from 'tree-conver';
-// import { tree2array } from '@axolo/tree-array';
+import { generateTree } from './utils/navHelpers';
+import { v4 as uuidv4 } from 'uuid';
+
 interface NavParams extends InitParams {
   pages: Array<{ link: string }>;
 }
-// 排序方法
-// const compare = (obj1: any, obj2: any) => {
-//   var val1 = obj1.link;
-//   var val2 = obj2.link;
-//   if (val1 < val2) {
-//     return -1;
-//   } else if (val1 > val2) {
-//     return 1;
-//   } else {
-//     return 0;
-//   }
-// };
+
+const sortArray = (array: [], field: string) => {
+  const compare = (obj1: any, obj2: any) => {
+    return obj1[field].localeCompare(obj2.link);
+  };
+  return array.sort(compare);
+};
 
 export default (params: NavParams) => {
   const { pages, directory } = params;
-  // console.log('pages', pages);
-  // 过滤出以root为根目录的所有内容
   const pagesFiltered: Array<{}> = pages.filter((i) =>
     i.link.includes(`${directory}/`)
   );
-  // 构建导航栏
   const buildNav = (pagesFiltered: any) => {
-    let list: Array<any> = [];
-    const pages = pagesFiltered.map((item: any) => ({
-      ...item,
-      link: item.link.split(`${directory}/`)[1],
-      level: item.link.split(`${directory}/`)[1].split('/').length - 1
-    }));
-    console.log(pages.filter((i: any) => i.level > 0));
-    const links = pages
-      .filter((i: any) => i.level > 0)
-      .map((i: any) => i.link.split('/').slice(0, -1));
-    console.log(links);
-    const generateTree = (links: string[][]) => {
-      const tree: any = {};
-      links.forEach((link) => {
-        let currentLevel = tree;
-        link.forEach((part) => {
-          if (!currentLevel[part]) {
-            currentLevel[part] = { text: part, children: {} };
-          }
-          currentLevel = currentLevel[part].children;
-        });
-      });
+    const pages = pagesFiltered.map((item: any) => {
+      const { link, frontMatter } = item;
+      const linkParts = link.split(`${directory}/`)[1].split('/');
+      const dir = linkParts.slice(0, -1).join('/');
+      const text =
+        frontMatter?.title || linkParts.slice(-1).join('').replace('.md', '');
+      const level = linkParts.length - 1;
 
-      const convertToArray = (node: any) => {
-        return Object.values(node).map((value: any) => {
-          value.children = convertToArray(value.children);
-          return value;
-        });
+      return {
+        ...item,
+        id: uuidv4(),
+        text,
+        link: linkParts.join('/'),
+        level,
+        dir
       };
+    });
+    const subPages = pages.filter((page: any) => page.level > 0);
+    const rootPages = pages.filter((page: any) => page.level === 0);
 
-      return convertToArray(tree);
-    };
-    const tree = generateTree(links);
-    console.log(JSON.stringify(tree));
-    console.log(treeToArray(tree));
-    // console.log(tree2array(tree));
-    // for (let a of pagesFiltered) {
-    //   let link = a.link.split(`${directory}/`)[1];
-    //   let urls = link.split('/');
-    //   for (let i = 0, len = urls.length; i < len; i++) {
-    //     let b = urls[i];
-    //     let obj = {
-    //       text: b.replace('.md', ''),
-    //       key: b,
-    //       parent: i > 0 ? urls[i - 1] : undefined,
-    //       link: `/${directory}/${urls.join('/')}`
-    //     };
-    //     list.push(obj);
-    //   }
-    // }
+    const subPageDirectorys = subPages.map((page: any) =>
+      page.link.split('/').slice(0, -1)
+    );
+    const subPagesDirectorysTree = generateTree(subPageDirectorys);
+    const subPagesDirectorysArray: any = treeToArray(subPagesDirectorysTree);
 
-    // list = list.sort(compare);
-    // 过滤出所有有父级的内容
-    // let childrenList = list.filter((i: any) => i.parent);
-    // 去重
-    // const uniqueFunc = (arr: any, uniId: any) => {
-    //   const res = new Map();
-    //   return arr.filter(
-    //     (item: any) => !res.has(item[uniId]) && res.set(item[uniId], 1)
-    //   );
-    // };
-    // childrenList = uniqueFunc(childrenList, 'key');
-    // // 过滤出根目录下的内容
-    // let rootList: any = list.filter((i: any) => !i.parent);
-    // rootList = uniqueFunc(rootList, 'key'); // 去重
-    // // 遍历根目录下的内容
-    // rootList.map((item: any) => {
-    //   parseList(item);
-    // });
-    // // 递归遍历所有内容，构建树形结构
-    // function parseList(parent: any): any {
-    //   let children = childrenList.filter((i: any) => i.parent === parent.key);
-    //   if (children.length > 0) {
-    //     delete parent.link;
-    //     for (const item of children) {
-    //       parseList(item);
-    //     }
-    //     if (!parent.hasOwnProperty('items')) {
-    //       parent.items = children;
-    //     }
-    //   }
-    // }
-    // return rootList;
-    return list;
+    subPages.forEach((page: any) => {
+      subPagesDirectorysArray.forEach((item: any) => {
+        if (item.dir === page.dir) {
+          page.parentId = item.id;
+        }
+      });
+    });
+    const sortFilterArray: any = [
+      ...sortArray(subPagesDirectorysArray, 'dir'),
+      ...sortArray(subPages, 'link')
+    ].map((item: any) => ({
+      text: item.text,
+      link: item.link,
+      id: item.id,
+      parentId: item.parentId
+    }));
+
+    const subTree: any = arrayToTree(sortFilterArray, {
+      idKey: 'id',
+      pidKey: 'parentId',
+      childrenKey: 'items'
+    });
+    const rootTree = sortArray(
+      rootPages.map((item: any) =>
+        item.link === 'index.md' ? { ...item, text: 'Home' } : item
+      ),
+      'text'
+    );
+    return [...rootTree, ...subTree];
   };
   return buildNav(pagesFiltered);
 };

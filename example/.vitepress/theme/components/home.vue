@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import VPDoc from 'vitepress/dist/client/theme-default/components/VPDoc.vue';
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
-import { treeToArray } from 'tree-conver';
-console.log('treeToArray', treeToArray([]));
 </script>
 <template>
   <div class="hero">
