@@ -17,7 +17,13 @@ defineProps<{
     </p>
 
     <template v-for="item in items">
-      <div class="VPMenuGroupContainer">
+      <div
+        class="VPMenuGroupContainer"
+        :class="{
+          hasVPMenuGroupItem: 'link' in item,
+          hasVPMenuLink: !('link' in item)
+        }"
+      >
         <VPMenuLink
           v-if="'link' in item"
           :item="item"
@@ -44,7 +50,8 @@ defineProps<{
   border-left: 1px solid var(--vp-c-divider);
   margin-left: 5px;
 }
-.VPMenuGroupContainer+.VPMenuGroupContainer{
+.hasVPMenuGroupItem + .hasVPMenuLink,
+.hasVPMenuLink + .hasVPMenuGroupItem {
   padding-top: 5px;
 }
 
