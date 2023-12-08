@@ -84,7 +84,7 @@ export const buildSubTree = (params: Params) => {
 export const sortArray = (array: Array<any>, field?: string) => {
   if (field) {
     const compare = (obj1: any, obj2: any) => {
-      return obj1[field].localeCompare(obj2.link);
+      return obj1[field].localeCompare(obj2[field]);
     };
     return array.sort(compare);
   } else {
