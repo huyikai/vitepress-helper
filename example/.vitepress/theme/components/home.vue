@@ -47,6 +47,7 @@ import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vu
   flex-flow: column nowrap;
   align-items: center;
   padding-top: 30px;
+  gap: 20px;
 
   .logo {
     display: block;
@@ -68,7 +69,6 @@ import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vu
   }
 
   .buttons {
-    margin-top: 30px;
     display: flex;
     flex-flow: row wrap;
     gap: 12px;
