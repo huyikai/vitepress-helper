@@ -71,8 +71,8 @@ export const buildSubTree = (params: Params) => {
     });
   });
   const sortFilterArray: any = [
-    ...sortArray(subPagesDirectorysArray, 'dir'),
-    ...sortArray(subPages, 'link')
+    ...sortArray(subPages, 'link'),
+    ...sortArray(subPagesDirectorysArray, 'dir')
   ].map((item: any) => transformItem(item));
   const subTree: any = arrayToTree(sortFilterArray, {
     idKey: 'id',
