@@ -1,4 +1,4 @@
 export interface InitParams {
-    directory?: string;
+    directory: string;
     collapsible?: boolean;
 }

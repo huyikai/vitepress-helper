@@ -1,14 +1,11 @@
+import { arrayToTree, treeToArray } from 'tree-conver';
+
 import type { InitParams } from './../types/init';
+import { generateTree } from './utils/navHelpers';
 import { sortArray } from './utils/commonHelpers';
-interface childrenItemsType {
-  text: string;
-  key: string;
-  parentKey: string | undefined;
-  link?: string;
-  items: childrenItemsType;
-  collapsible: boolean | undefined;
-  collapsed: boolean | undefined | null;
-}
+// import { transformSidebar } from './utils/sidebarHelpers';
+import { v4 as uuidv4 } from 'uuid';
+
 interface pagesType {
   frontMatter: string;
   regularPath: string;
@@ -27,80 +24,79 @@ export interface SidebarParams extends InitParams {
 }
 export default (params: SidebarParams) => {
   const { pages, directory, collapsible } = params;
-  let rootNameList: Array<string> = [];
-  let childrenList: any = [];
+  // const pagesFiltered: Array<{}> = pages.filter((i) =>
+  //   i.link.includes(`${directory}/`)
+  // );
+  console.log(directory, collapsible);
 
-  for (let a of pages) {
-    // generate root dir name list
-    let rootName = a.link
-      .replace(`${directory}/`, '')
-      .split('/')
-      .filter((i: string, n: number) => i.indexOf('.md') < 0 && n < 2)
-      .join('/');
-    if (rootName.indexOf('/') >= 0) {
-      rootNameList.push(rootName);
-    }
-    let urls = a.link.replace(`${directory}/`, '').split('/');
-    for (let i = 0, len = urls.length; i < len; i++) {
-      let b = urls[i];
-      let obj = {
-        text: b.replace('.md', ''),
-        key: b,
-        parentKey: i > 0 ? urls[i - 1] : undefined,
-        link: `/${urls.join('/')}`
+  // const rootNameList = sortArray(
+  //   deduplicationArray(
+  //     pages
+  //       .map((item) => item.link.split('/').slice(1, 3).join('/'))
+  //       .filter((item) => !item.includes('.md'))
+  //   )
+  // );
+
+  const pagesFiltered: Array<{}> = pages.filter((i) =>
+    i.link.includes(`${directory}/`)
+  );
+  const subPages = pagesFiltered
+    .map((item: any) => {
+      const { link, frontMatter } = item;
+      const linkParts = link.split(`${directory}/`)[1].split('/');
+      const dir = linkParts.slice(0, -1).join('/');
+      const text =
+        frontMatter?.title || linkParts.slice(-1).join('').replace('.md', '');
+      const level = linkParts.length - 1;
+
+      return {
+        ...item,
+        id: uuidv4(),
+        text,
+        link: linkParts.join('/'),
+        level,
+        dir
       };
-      childrenList.push(obj);
-    }
-  }
-  rootNameList = rootNameList.filter((i: string) => !['', '/'].includes(i));
-  rootNameList.sort();
+    })
+    .filter((page: any) => page.level > 0);
+  const subPageDirectorys = subPages.map((page: any) =>
+    page.link.split('/').slice(0, -1)
+  );
+  const subPagesDirectorysTree = generateTree(subPageDirectorys);
+  const subPagesDirectorysArray: any = treeToArray(subPagesDirectorysTree);
 
-  childrenList = sortArray(childrenList, 'text');
-  // 去重
-  function unique(arr: Array<any>, unikey = '') {
-    const res: any = new Map();
-    return arr.filter(
-      (item: any) =>
-        !res.has(unikey ? item[unikey] : item) &&
-        res.set(unikey ? item[unikey] : item, 1)
-    );
-  }
-  rootNameList = unique(rootNameList);
-  let sidebar: any = {};
-  for (let c of rootNameList) {
-    sidebar[c] = [
-      {
-        text: c
-          .split('/')
-          .filter((i: any) => i)
-          .splice(-1, 1)[0],
-        key: c
-          .split('/')
-          .filter((i: any) => i)
-          .splice(-1, 1)[0],
-        parentKey: undefined
+  subPages.forEach((page: any) => {
+    subPagesDirectorysArray.forEach((item: any) => {
+      if (item.dir === page.dir) {
+        page.parentId = item.id;
       }
-    ];
-  }
-  for (let t in sidebar) {
-    parseList(sidebar[t][0]);
-  }
-
-  function parseList(item: childrenItemsType) {
-    let children = childrenList.filter(
-      (i: childrenItemsType) => item.key === i.parentKey
-    );
-    children = unique(children, 'key');
-    if (children) {
-      for (let a of children) {
-        parseList(a);
-      }
-      !(item.hasOwnProperty('link') && item.key.indexOf('.md') >= 0) &&
-        delete item.link;
-      item.items = children;
-      item.collapsible = collapsible;
-      item.collapsed = null;
+    });
+  });
+  const sortFilterArray: any = [
+    ...sortArray(subPagesDirectorysArray, 'dir'),
+    ...sortArray(subPages, 'link')
+  ].map((item: any) => ({
+    text: item.text,
+    link: item.link ? `/${item.link}` : undefined,
+    id: item.id,
+    dir: item.dir,
+    parentId: item.parentId
+  }));
+  const subTree: any = arrayToTree(sortFilterArray, {
+    idKey: 'id',
+    pidKey: 'parentId',
+    childrenKey: 'items'
+  });
+  let result: Record<string, any[]> = {};
+  subTree.forEach((item: any) => {
+    if (!result[`/${item.text}/`]) {
+      result[`/${item.text}/`] = [];
     }
-  }
-  return sidebar;
+    result[`/${item.text}/`].push({
+      text: item.text,
+      items: [...item.items]
+    });
+  });
+  console.log('result', JSON.stringify(result));
+  return result;
 };

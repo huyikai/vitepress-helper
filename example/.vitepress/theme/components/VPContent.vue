@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useRoute, useData } from 'vitepress';
-import { useSidebar } from 'vitepress/dist/client/theme-default/composables/sidebar.js';
+import { useSidebar } from 'vitepress/dist/client/theme-default/composables/sidebar';
 import VPPage from 'vitepress/dist/client/theme-default/components/VPPage.vue';
 import VPHome from 'vitepress/dist/client/theme-default/components/VPHome.vue';
 import VPDoc from 'vitepress/dist/client/theme-default/components/VPDoc.vue';

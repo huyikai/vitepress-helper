@@ -5,3 +5,7 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>;
   export default component;
 }
+declare module 'vitepress/dist/client/shared';
+declare module 'vitepress/dist/client/theme-default/composables/nav'
+declare module 'vitepress/dist/client/theme-default/composables/sidebar'
+declare module 'vitepress/dist/client/theme-default/composables/flyout'

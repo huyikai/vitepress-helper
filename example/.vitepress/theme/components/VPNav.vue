@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { provide } from 'vue'
-import { useNav } from 'vitepress/dist/client/theme-default/composables/nav.js'
-import { useSidebar } from 'vitepress/dist/client/theme-default/composables/sidebar.js'
+import { useNav } from 'vitepress/dist/client/theme-default/composables/nav'
+import { useSidebar } from 'vitepress/dist/client/theme-default/composables/sidebar'
 import VPNavBar from './VPNavBar.vue'
 import VPNavScreen from 'vitepress/dist/client/theme-default/components/VPNavScreen.vue'
 

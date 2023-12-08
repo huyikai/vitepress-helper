@@ -48,12 +48,13 @@ export default (params: NavParams) => {
         }
       });
     });
+
     const sortFilterArray: any = [
       ...sortArray(subPagesDirectorysArray, 'dir'),
       ...sortArray(subPages, 'link')
     ].map((item: any) => ({
       text: item.text,
-      link: item.link,
+      link: item.link ? `/${item.link}` : undefined,
       id: item.id,
       parentId: item.parentId
     }));
@@ -64,12 +65,15 @@ export default (params: NavParams) => {
       childrenKey: 'items'
     });
     const rootTree = sortArray(
-      rootPages.map((item: any) =>
-        item.link === 'index.md' ? { ...item, text: 'Home' } : item
-      ),
+      rootPages.map((item: any) => ({
+        ...item,
+        text: item.link === 'index.md' ? 'Home' : item.text,
+        link: `/${item.link}`
+      })),
       'text'
     );
     return [...rootTree, ...subTree];
   };
+
   return buildNav(pagesFiltered);
 };
