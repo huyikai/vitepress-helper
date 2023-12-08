@@ -12,7 +12,7 @@ export default async () => {
     ],
     themeConfig: {
       // pages: page, // 所有页面
-      siteTitle: 'vitepress-helper', //导航栏左侧名称
+      siteTitle: 'VitePress-Helper', //导航栏左侧名称
       logo: '/static/nav-logo.svg', //导航栏左侧头像
       lastUpdated: true, //最后更新时间
       outlineTitle: 'Catalog', //右侧 侧边栏标题

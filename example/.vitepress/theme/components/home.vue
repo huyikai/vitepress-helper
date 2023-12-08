@@ -9,7 +9,7 @@ import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vu
       src="/static/logo.svg"
       alt="vitepress-helper"
     />
-    <div class="name">vitepress-helper</div>
+    <div class="name">VitePress-Helper</div>
     <div class="text">enhance vitepress experience</div>
 
     <div class="buttons">
