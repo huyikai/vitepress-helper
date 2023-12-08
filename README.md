@@ -28,4 +28,4 @@ npm i @huyikai/vitepress-helper
 
 [MIT](./license)
 
-## [Repository](https://github.com/vitepress-Helper/vitepress-Helper)
+## [Repository](https://github.com/huyikai/vitepress-Helper)
