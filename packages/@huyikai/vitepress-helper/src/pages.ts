@@ -46,9 +46,12 @@ export default async (params: InitParams) => {
   );
 
   // 过滤掉frontMatter中有page属性的Page
-  pages = pages.filter((item: Page) => !item.frontMatter.page);
+  // 过滤掉不在设置的根目录下的文件
+  pages = pages.filter(
+    (item: Page) =>
+      !item.frontMatter.page || item.link.includes(`${directory}/`)
+  );
 
-  // 根据日期排序
   pages.sort(compareDate);
-  return pages; // 返回所有页面的数组
+  return pages;
 };
