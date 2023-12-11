@@ -2,9 +2,11 @@
 
 import { Command } from 'commander';
 import chalk from 'chalk';
+import create from './create';
 import figlet from 'figlet';
 import { fileURLToPath } from 'url';
 import fs from 'fs-extra';
+import inquirer from 'inquirer';
 import path from 'path';
 
 const program: Command = new Command();
@@ -38,7 +40,37 @@ program
   )
   .summary('initialization\r\n初始化')
   .action(async () => {
-    console.log('action', cwd);
+    const question = [
+      {
+        name: 'name',
+        message: 'Project Name',
+        type: 'input',
+        default: 'my-docs'
+      },
+      {
+        name: 'author',
+        description: 'Input Author Name',
+        message: 'Author',
+        default: 'huyikai'
+      },
+      {
+        name: 'version',
+        description: 'Version',
+        message: 'Version',
+        default: '1.0.0'
+      }
+      // {
+      //   name: 'newDir',
+      //   message: 'Create A New Directory?',
+      //   type: 'list',
+      //   choices: [
+      //     { name: 'yes', value: true },
+      //     { name: 'no', value: false }
+      //   ]
+      // }
+    ];
+    let answers = await inquirer.prompt(question);
+    create(answers);
   });
 
 // 设置程序的使用方法

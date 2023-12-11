@@ -25,7 +25,10 @@
     "vitepress-helper": "./lib/bin/index.js"
   },
   "files": [
-    "lib"
+    "lib",
+    "template",
+    "theme",
+    "bin"
   ],
   "scripts": {
     "build": "rollup --config rollup.config.ts --configPlugin typescript",
@@ -49,6 +52,7 @@
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/figlet": "^1.5.8",
     "@types/fs-extra": "^11.0.4",
+    "@types/inquirer": "^9.0.7",
     "@types/node": "^18.16.3",
     "@types/uuid": "^9.0.7",
     "rollup": "^3.21.5",

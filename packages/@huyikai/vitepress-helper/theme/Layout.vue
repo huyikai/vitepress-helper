@@ -1,17 +1,15 @@
 <script setup lang="ts">
-import { provide, watch } from 'vue'
-import { useData, useRoute } from 'vitepress'
-import { useSidebar, useCloseSidebarOnEscape } from 'vitepress/dist/client/theme-default/composables/sidebar'
-import VPSkipLink from 'vitepress/dist/client/theme-default/components/VPSkipLink.vue'
+import { useRoute } from 'vitepress'
+import { computed, provide, useSlots, watch } from 'vue'
 import VPBackdrop from 'vitepress/dist/client/theme-default/components/VPBackdrop.vue'
-
-import VPLocalNav from 'vitepress/dist/client/theme-default/components/VPLocalNav.vue'
-import VPSidebar from 'vitepress/dist/client/theme-default/components/VPSidebar.vue'
-import VPFooter from 'vitepress/dist/client/theme-default/components/VPFooter.vue'
-
-// 修改过的组件
 import VPContent from './components/VPContent.vue'
+import VPFooter from 'vitepress/dist/client/theme-default/components/VPFooter.vue'
+import VPLocalNav from 'vitepress/dist/client/theme-default/components/VPLocalNav.vue'
 import VPNav from './components/VPNav.vue'
+import VPSidebar from 'vitepress/dist/client/theme-default/components/VPSidebar.vue'
+import VPSkipLink from 'vitepress/dist/client/theme-default/components/VPSkipLink.vue'
+import { useData } from 'vitepress/dist/client/theme-default/composables/data'
+import { useCloseSidebarOnEscape, useSidebar } from 'vitepress/dist/client/theme-default/composables/sidebar'
 
 const {
   isOpen: isSidebarOpen,
@@ -24,13 +22,16 @@ watch(() => route.path, closeSidebar)
 
 useCloseSidebarOnEscape(isSidebarOpen, closeSidebar)
 
-provide('close-sidebar', closeSidebar)
-
 const { frontmatter } = useData()
+
+const slots = useSlots()
+const heroImageSlotExists = computed(() => !!slots['home-hero-image'])
+
+provide('hero-image-slot-exists', heroImageSlotExists)
 </script>
 
 <template>
-  <div v-if="frontmatter.layout !== false" class="Layout">
+  <div v-if="frontmatter.layout !== false" class="Layout" :class="frontmatter.pageClass" >
     <slot name="layout-top" />
     <VPSkipLink />
     <VPBackdrop class="backdrop" :show="isSidebarOpen" @click="closeSidebar" />
@@ -43,17 +44,31 @@ const { frontmatter } = useData()
       <template #nav-screen-content-after><slot name="nav-screen-content-after" /></template>
     </VPNav>
     <VPLocalNav :open="isSidebarOpen" @open-menu="openSidebar" />
-    <VPSidebar :open="isSidebarOpen" />
+
+    <VPSidebar :open="isSidebarOpen">
+      <template #sidebar-nav-before><slot name="sidebar-nav-before" /></template>
+      <template #sidebar-nav-after><slot name="sidebar-nav-after" /></template>
+    </VPSidebar>
 
     <VPContent>
+      <template #page-top><slot name="page-top" /></template>
+      <template #page-bottom><slot name="page-bottom" /></template>
+
+      <template #not-found><slot name="not-found" /></template>
       <template #home-hero-before><slot name="home-hero-before" /></template>
+      <template #home-hero-info><slot name="home-hero-info" /></template>
+      <template #home-hero-image><slot name="home-hero-image" /></template>
       <template #home-hero-after><slot name="home-hero-after" /></template>
       <template #home-features-before><slot name="home-features-before" /></template>
       <template #home-features-after><slot name="home-features-after" /></template>
       <template #custom-home><slot name="custom-home"></slot></template>
+
       <template #doc-footer-before><slot name="doc-footer-before" /></template>
       <template #doc-before><slot name="doc-before" /></template>
       <template #doc-after><slot name="doc-after" /></template>
+      <template #doc-top><slot name="doc-top" /></template>
+      <template #doc-bottom><slot name="doc-bottom" /></template>
+
       <template #aside-top><slot name="aside-top" /></template>
       <template #aside-bottom><slot name="aside-bottom" /></template>
       <template #aside-outline-before><slot name="aside-outline-before" /></template>

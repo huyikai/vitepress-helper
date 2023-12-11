@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import VPLayout from './Layout.vue';
-import Home from './components/home.vue';
+// import Home from './components/home.vue';
 </script>
 <template>
     <VPLayout>

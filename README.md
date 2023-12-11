@@ -4,24 +4,23 @@
 
 ## Brief
 
-Added some features on the basis of  [vitepress](https://vitepress.vuejs.org)
+Added some features on the basis of [vitepress](https://vitepress.vuejs.org)
 
 ## Features
 
 - Nav：Automatic generate the navigation bar based on the file directory
 - Sidebar：Automatic generate the sidebar based on the file directory
-- Search：Fuzzy match all article titles. You can also follow the configuration of vitepress to access Algolia.
+- Cli：Guide to complete the initialization operation
 
 ## ToDo
 
-- Native CMS: Run a local CMS to make content management easier
+- Integration CMS: Run a local CMS to make content management easier
 - Internationalization: Modify the Sidebar and Navbar methods to adapt to internationalization settings
 
 ## Usage
 
 ```shell
-# Global import dependency
-npm i @huyikai/vitepress-helper
+npx @huyikai/vitepress-Helper init
 ```
 
 ## License
