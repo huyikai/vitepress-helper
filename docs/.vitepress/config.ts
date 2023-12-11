@@ -1,7 +1,7 @@
 import vitepressHelper from '@huyikai/vitepress-helper';
 export default async () => {
   const instance: any = await vitepressHelper({
-    directory: 'example',
+    directory: 'docs',
     collapsible: true
   });
   return {

@@ -1,53 +1,62 @@
 {
-  "author": "huyikai",
+  "name": "@huyikai/vitepress-helper",
+  "version": "0.0.3",
+  "description": "enhance vitepress experience",
+  "keywords": [
+    "vite",
+    "vitepress",
+    "vitepress-helper"
+  ],
+  "homepage": "https://github.com/huyikai/vitepress-helper",
   "bugs": {
     "url": "https://github.com/huyikai/vitepress-helper/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huyikai/vitepress-helper"
+  },
+  "license": "MIT",
+  "author": "huyikai",
+  "type": "module",
+  "main": "lib/index.esm.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/types/index.d.ts",
+  "bin": {
+    "vitepress-helper": "./lib/bin/index.js"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "rollup --config rollup.config.ts --configPlugin typescript",
+    "sort": "sort-package-json",
+    "tsc": "tsc -p ./tsconfig.json"
+  },
   "dependencies": {
     "@axolo/tree-array": "^0.2.1",
+    "chalk": "^5.3.0",
+    "commander": "^11.1.0",
+    "figlet": "^1.7.0",
     "fs-extra": "^10.1.0",
     "globby": "^11.0.1",
     "gray-matter": "^4.0.2",
     "tree-conver": "^0.0.95",
     "uuid": "^9.0.1"
   },
-  "description": "enhance vitepress experience",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.1",
     "@rollup/plugin-typescript": "^11.1.5",
+    "@types/figlet": "^1.5.8",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^18.16.3",
     "@types/uuid": "^9.0.7",
     "rollup": "^3.21.5",
+    "rollup-plugin-add-shebang": "^0.3.1",
     "tslib": "^2.3.1",
     "typescript": "^5.0.4"
   },
-  "files": [
-    "lib"
-  ],
-  "homepage": "https://github.com/huyikai/vitepress-helper",
-  "keywords": [
-    "vite",
-    "vitepress",
-    "vitepress-helper"
-  ],
-  "license": "MIT",
-  "main": "lib/index.esm.js",
-  "module": "lib/index.esm.js",
-  "name": "@huyikai/vitepress-helper",
   "publishConfig": {
     "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/huyikai/vitepress-helper"
-  },
-  "scripts": {
-    "build": "rollup --config rollup.config.ts --configPlugin typescript",
-    "tsc": "tsc -p ./tsconfig.json"
-  },
-  "type": "module",
-  "types": "lib/types/index.d.ts",
-  "version": "0.0.3"
+  }
 }

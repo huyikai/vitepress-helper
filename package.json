@@ -21,8 +21,8 @@
     "packages/@huyikai/*"
   ],
   "scripts": {
-    "dev": "vitepress dev example",
-    "build": "vitepress build example",
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
     "commit": "git-cz"
   },
   "devDependencies": {

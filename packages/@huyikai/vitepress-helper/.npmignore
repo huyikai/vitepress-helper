@@ -1,4 +1,5 @@
 src/
+bin/
 types/
 tsconfig.json
 tsconfig.base.json
