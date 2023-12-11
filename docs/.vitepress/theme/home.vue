@@ -41,37 +41,38 @@ import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vu
   </div>
   <VPDoc />
 </template>
-<style lang="scss">
+<style>
 .hero {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  padding-top: 30px;
+  justify-content: center;
+  height: 60vh;
   gap: 20px;
+}
 
-  .logo {
-    display: block;
-  }
+.hero .logo {
+  display: block;
+}
 
-  .name {
-    line-height: 40px;
-    font-size: 32px;
-    font-weight: 700;
-    white-space: pre-wrap;
-    background: var(--vp-home-hero-name-background);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: var(--vp-home-hero-name-color);
-  }
+.hero .name {
+  line-height: 40px;
+  font-size: 32px;
+  font-weight: 700;
+  white-space: pre-wrap;
+  background: var(--vp-home-hero-name-background);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: var(--vp-home-hero-name-color);
+}
 
-  .text {
-    color: var(--vp-c-text-2);
-  }
+.hero .text {
+  color: var(--vp-c-text-2);
+}
 
-  .buttons {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 12px;
-  }
+.hero .buttons {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 12px;
 }
 </style>

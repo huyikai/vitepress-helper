@@ -46,7 +46,8 @@ import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vu
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  padding-top: 30px;
+  justify-content: center;
+  height: 60vh;
   gap: 20px;
 }
 

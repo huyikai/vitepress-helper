@@ -11,8 +11,6 @@ import path from 'path';
 
 const program: Command = new Command();
 
-// 工作目录
-const cwd = process.cwd();
 
 // 粗体文字
 const blodText = (text: string) => chalk.blue.bold(text);

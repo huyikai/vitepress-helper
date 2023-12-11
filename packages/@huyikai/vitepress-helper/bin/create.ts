@@ -22,9 +22,9 @@ const cwd = process.cwd();
 // const blodText = (text: string) => chalk.blue.bold(text);
 
 export default async (answers: Answers) => {
-  const { name, author, version, newDir } = answers;
+  const { name, author, version } = answers;
 
-  const targetDir = path.join(cwd, newDir ? name : '');
+  // const targetDir = path.join(cwd, newDir ? name : '');
 
   // 初始化package.json
   execSync('npm init -y', { stdio: 'inherit' });
