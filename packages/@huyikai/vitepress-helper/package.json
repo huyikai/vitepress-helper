@@ -1,6 +1,5 @@
 {
   "name": "@huyikai/vitepress-helper",
-  "private": false,
   "version": "0.0.6",
   "description": "enhance vitepress experience",
   "keywords": [
@@ -65,7 +64,6 @@
     "typescript": "^5.0.4"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
+    "access": "public"
   }
 }
