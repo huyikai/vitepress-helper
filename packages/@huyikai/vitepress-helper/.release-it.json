@@ -1,21 +1,21 @@
 {
   "github": {
-   "release": false
+    "release": false
   },
   "git": {
-   "commitMessage": "release: v${version}"
+    "commitMessage": "release: v${version}"
   },
   "npm": {
-   "publish": false
+    "publish": false
   },
+  "increment": "patch",
   "hooks": {
-   "after:bump": "echo 更新版本成功"
+    "after:bump": "echo 更新版本成功"
   },
   "plugins": {
-   "@release-it/conventional-changelog": {
-    "preset": "angular",
-    "infile": "CHANGELOG.md"
-   }
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": "CHANGELOG.md"
+    }
   }
- }
- 
+}
