@@ -11,7 +11,8 @@ jobs:
     steps:
       - name: Publish to npm
         run: |
-          npm ci
+          npm i
+          cd packages/@huyikai/vitepress-helper
           npm run build
           npm publish
         env:
