@@ -10,16 +10,18 @@ on:
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16]
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - run: |
+      - name: Build
+        run: |
           npm i
           cd packages/@huyikai/vitepress-helper
-          npm i
           npm run build
-          npm publish
+      - name: Publish
+        run: |
+          npm publish --access public
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
