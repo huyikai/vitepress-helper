@@ -12,14 +12,6 @@ jobs:
     steps:
       - name: Checkout  ️
         uses: actions/checkout@v3
-      - name: Publish to npm
-        run: |
-          npm i
-          cd packages/@huyikai/vitepress-helper
-          npm run build
-          npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: Package Build
         run: |
           npm i
