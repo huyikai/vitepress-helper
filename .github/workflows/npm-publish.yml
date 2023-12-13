@@ -10,11 +10,12 @@ on:
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16]
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
       - name: Build
         run: |
           npm i
@@ -24,4 +25,4 @@ jobs:
         run: |
           npm publish --access public
         env:
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
