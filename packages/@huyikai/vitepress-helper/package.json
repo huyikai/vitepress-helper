@@ -1,5 +1,6 @@
 {
   "name": "@huyikai/vitepress-helper",
+  "private": false,
   "version": "0.0.4",
   "description": "enhance vitepress experience",
   "keywords": [
@@ -33,7 +34,8 @@
   "scripts": {
     "build": "rollup --config rollup.config.ts --configPlugin typescript",
     "sort": "sort-package-json",
-    "tsc": "tsc -p ./tsconfig.json"
+    "tsc": "tsc -p ./tsconfig.json",
+    "release": "release-it"
   },
   "dependencies": {
     "@axolo/tree-array": "^0.2.1",
@@ -47,6 +49,7 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "@release-it/conventional-changelog": "^8.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.1",
     "@rollup/plugin-typescript": "^11.1.5",
@@ -55,12 +58,14 @@
     "@types/inquirer": "^9.0.7",
     "@types/node": "^18.16.3",
     "@types/uuid": "^9.0.7",
+    "release-it": "^17.0.1",
     "rollup": "^3.21.5",
     "rollup-plugin-add-shebang": "^0.3.1",
     "tslib": "^2.3.1",
     "typescript": "^5.0.4"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }
