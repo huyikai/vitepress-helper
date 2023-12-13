@@ -4,8 +4,9 @@
 name: Node.js Package
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - master
 
 jobs:
   publish-npm:
@@ -23,6 +24,7 @@ jobs:
           npm run build
       - name: Publish
         run: |
-          npm publish --access public
+          cd packages/@huyikai/vitepress-helper
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
