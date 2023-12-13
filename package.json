@@ -28,7 +28,6 @@
   "devDependencies": {
     "@huyikai/vitepress-helper": "^0.0.6",
     "git-cz": "^4.9.0",
-    "sass": "^1.56.1",
     "vitepress": "^1.0.0-rc.31",
     "vue": "^3.3.9"
   }
