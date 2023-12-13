@@ -1,12 +1,12 @@
 {
   "github": {
-    "release": true
+    "release": false
   },
   "git": {
     "commitMessage": "release: v${version}"
   },
   "npm": {
-    "publish": true
+    "publish": false
   },
   "increment": "patch",
   "hooks": {
