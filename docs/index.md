@@ -9,7 +9,10 @@ lastUpdated: false
 
 ## Usage
 
-Currently, two usage methods are planned: 1. Using the scaffolding initialization (recommended), you can get started directly. 2. Add the dependency `@huyikai/vitepress-Helper` to an existing vitepress project and manually modify the config and theme.
+Currently, two usage methods are planned:
+
+1. Using the scaffolding initialization (recommended), you can get started directly.
+2. Add the dependency `@huyikai/vitepress-Helper` to an existing vitepress project and manually modify the config and theme.
 
 ### Cli Init
 

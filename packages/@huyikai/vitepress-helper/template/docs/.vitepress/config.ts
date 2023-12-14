@@ -22,10 +22,17 @@ export default async () => {
       // 导航栏
       nav: [
         ...instance.nav,
+        // 可以自定义添加导航栏的额外内容
         {
-          // 可以自定义添加导航栏的额外内容
           text: 'Example',
-          link: 'https://huyikai.xyz'
+          items: [
+            { text: 'MySite', link: 'https://huyikai.xyz' },
+            {
+              text: 'Tree-Conver',
+              link: 'https://huyikai.github.io/tree-conver/'
+            },
+            { text: 'LocalCMS', link: 'https://huyikai.github.io/local-cms/' }
+          ]
         }
       ],
       // 侧边栏

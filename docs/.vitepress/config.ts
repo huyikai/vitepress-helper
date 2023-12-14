@@ -25,7 +25,14 @@ export default async () => {
         ...instance.nav,
         {
           text: 'Example',
-          link: 'https://huyikai.xyz'
+          items: [
+            { text: 'MySite', link: 'https://huyikai.xyz' },
+            {
+              text: 'Tree-Conver',
+              link: 'https://huyikai.github.io/tree-conver/'
+            },
+            { text: 'LocalCMS', link: 'https://huyikai.github.io/local-cms/' }
+          ]
         }
       ],
       // 侧边栏

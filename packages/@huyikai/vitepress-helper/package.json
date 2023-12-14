@@ -2,7 +2,7 @@
   "name": "@huyikai/vitepress-helper",
   "version": "0.0.7",
   "private": false,
-  "description": "enhance vitepress experience",
+  "description": "This tool is designed to help you to use VitePress more easily.",
   "keywords": [
     "vite",
     "vitepress",
