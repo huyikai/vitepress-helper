@@ -28,7 +28,9 @@
 
 ## 使用
 
-目前规划了两种使用方式：1.使用脚手架初始化（推荐），开箱即用。2.在已有的 vitepress 项目中添加依赖 `@huyikai/vitepress-Helper`，并手动修改设置(config.js)和主题(theme)。
+目前规划了两种使用方式：
+1.使用脚手架初始化（推荐），开箱即用。
+2.在已有的 vitepress 项目中添加依赖 `@huyikai/vitepress-Helper`，并手动修改设置(config.js)和主题(theme)。
 
 ### 1. CLI
 
