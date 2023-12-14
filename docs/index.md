@@ -97,9 +97,3 @@ const theme = {
 };
 export default theme;
 ```
-
-## License
-
-[MIT](./license)
-
-## [Repository](https://github.com/huyikai/vitepress-Helper)
