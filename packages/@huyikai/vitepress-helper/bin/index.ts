@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
+import { blodText } from './utils';
 import chalk from 'chalk';
 import create from './create';
 import figlet from 'figlet';
@@ -10,10 +11,6 @@ import inquirer from 'inquirer';
 import path from 'path';
 
 const program: Command = new Command();
-
-
-// 粗体文字
-const blodText = (text: string) => chalk.blue.bold(text);
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const packagePath = path.join(__dirname, './../../package.json');
@@ -56,16 +53,17 @@ program
         description: 'Version',
         message: 'Version',
         default: '1.0.0'
+      },
+      {
+        name: 'cms',
+        message: 'Do you need local CMS?',
+        default: true,
+        type: 'list',
+        choices: [
+          { name: 'yes', value: true },
+          { name: 'no', value: false }
+        ]
       }
-      // {
-      //   name: 'newDir',
-      //   message: 'Create A New Directory?',
-      //   type: 'list',
-      //   choices: [
-      //     { name: 'yes', value: true },
-      //     { name: 'no', value: false }
-      //   ]
-      // }
     ];
     let answers = await inquirer.prompt(question);
     create(answers);

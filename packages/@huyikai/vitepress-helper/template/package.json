@@ -22,7 +22,7 @@
     "build": "vitepress build docs"
   },
   "devDependencies": {
-    "@huyikai/vitepress-helper": "^0.0.3",
+    "@huyikai/vitepress-helper": "^0.0.7",
     "vitepress": "^1.0.0-rc.31",
     "vue": "^3.3.9"
   }

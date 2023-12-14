@@ -1,14 +1,13 @@
+import { blodText } from './utils';
 import { execSync } from 'child_process';
-// import chalk from 'chalk';
 import fs from 'fs-extra';
 // import inquirer from 'inquirer';
-// import ora from 'ora';
+import ora from 'ora';
 import path from 'path';
-
 interface Answers {
   name: string;
   author: string;
-  newDir: boolean;
+  cms: boolean;
   version: string;
 }
 
@@ -16,20 +15,17 @@ interface Answers {
 const cwd = process.cwd();
 
 // 进度动画
-// const spinner = ora();
-
-// 粗体文字
-// const blodText = (text: string) => chalk.blue.bold(text);
+const spinner = ora();
 
 export default async (answers: Answers) => {
-  const { name, author, version } = answers;
-
+  const { name, author, version, cms } = answers;
+  spinner.start('Installing...');
   // const targetDir = path.join(cwd, newDir ? name : '');
 
   // 初始化package.json
-  execSync('npm init -y', { stdio: 'inherit' });
+  execSync('npm init -y');
   execSync('npm install @huyikai/vitepress-helper', { stdio: 'inherit' });
-  //   execSync('npm link @huyikai/vitepress-helper', { stdio: 'inherit' });
+  // execSync('npm link @huyikai/vitepress-helper');
 
   // 模板文件的路径
   const templatePath = path.join(
@@ -47,8 +43,20 @@ export default async (answers: Answers) => {
     packageInfo.name = name;
     packageInfo.author = author;
     packageInfo.version = version;
+    packageInfo.scripts['cms'] = cms
+      ? 'node node_modules/@huyikai/local-cms/cms.js docs'
+      : undefined;
+    packageInfo.devDependencies['@huyikai/vitepress-helper'] = '^0.0.7';
+    packageInfo.devDependencies['@huyikai/local-cms'] = cms
+      ? 'latest'
+      : undefined;
     fs.writeFileSync(packagePath, JSON.stringify(packageInfo, null, 2));
   };
   changeConfig();
-  execSync('npm run dev', { stdio: 'inherit' });
+  execSync('npm i', { stdio: 'inherit' });
+  spinner.succeed('Install Complete!!!');
+  console.log(
+    `\r\nNow you can:\r\nrun ${blodText('npm run dev')} to preview` +
+      (cms ? `\r\nrun ${blodText('npm run cms')} to manage content` : '')
+  );
 };
