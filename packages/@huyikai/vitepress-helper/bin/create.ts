@@ -45,7 +45,7 @@ export default async (answers: Answers) => {
     packageInfo.scripts['cms'] = cms
       ? 'node node_modules/@huyikai/local-cms/cms.js docs'
       : undefined;
-    packageInfo.devDependencies['@huyikai/vitepress-helper'] = '^0.0.10';
+    packageInfo.devDependencies['@huyikai/vitepress-helper'] = '^0.0.11';
     packageInfo.devDependencies['@huyikai/local-cms'] = cms
       ? 'latest'
       : undefined;
