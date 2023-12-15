@@ -1,7 +1,6 @@
 import { blodText } from './utils';
 import { execSync } from 'child_process';
 import fs from 'fs-extra';
-// import inquirer from 'inquirer';
 import ora from 'ora';
 import path from 'path';
 interface Answers {
@@ -46,7 +45,7 @@ export default async (answers: Answers) => {
     packageInfo.scripts['cms'] = cms
       ? 'node node_modules/@huyikai/local-cms/cms.js docs'
       : undefined;
-    packageInfo.devDependencies['@huyikai/vitepress-helper'] = '^0.0.8';
+    packageInfo.devDependencies['@huyikai/vitepress-helper'] = '^0.0.10';
     packageInfo.devDependencies['@huyikai/local-cms'] = cms
       ? 'latest'
       : undefined;

@@ -1,10 +1,23 @@
-# Sidebar
+# Nav
 
-## 提升
+根据 VitePress 运行目录下的目录及内容自动生成侧边栏
 
-- 自动生成：根据 VitePress 运行目录下的目录及内容自动生成侧边栏。
+## 使用
 
-## 问题
+通过脚手架创建项目时，`config.js` 中已默认配置好侧边栏栏相关配置。直接使用即可。
 
-- 多语言情况未兼容
-- 内容排序目前只能按照名称排序，无法灵活定义。可以通过在文件前面增加数字序号来解决。也考虑过在 FrontMatter 中增加 order，还有待考量。
+后续补充侧边栏栏自动生成的功能，需要先运行 `npm install @huyikai/vitepress-Helper -D` 安装依赖，然后修改 `docs/.vitepress/config.js` 中的配置。
+
+```js
+import vitepressHelper from '@huyikai/vitepress-helper';
+export default async () => {
+  const instance: any = await vitepressHelper({
+    directory: 'docs',
+    collapsible: true
+  });
+  return{
+    ...
+    sidebar: instance.sidebar,
+  }
+};
+```

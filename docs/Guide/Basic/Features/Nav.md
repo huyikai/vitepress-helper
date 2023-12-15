@@ -1,12 +1,37 @@
 # Nav
 
-## 提升
+根据 VitePress 运行目录下的目录及内容自动生成导航栏
 
-- 自动生成：根据 VitePress 运行目录下的目录及内容自动生成导航栏。
-- 多级目录：VitePress 本身的导航只支持到二级目录，即使手动设置了更多的子级也不会生效。
-- 样式调整：优化了多层级、链接与类目等多种情况下的样式处理。像侧边栏的样式靠拢。
+## 使用
 
-## 问题
+通过脚手架创建项目时，`config.js` 中已默认配置好导航栏相关配置。直接使用即可。
 
-- 多语言情况未兼容
-- 内容排序目前只能按照名称排序，无法灵活定义。可以通过在文件前面增加数字序号来解决。也考虑过在 FrontMatter 中增加 order，还有待考量。
+后续补充导航栏自动生成的功能，需要先运行 `npm install @huyikai/vitepress-Helper -D` 安装依赖，然后修改 `docs/.vitepress/config.js` 中的配置。
+
+```js
+import vitepressHelper from '@huyikai/vitepress-helper';
+export default async () => {
+  const instance: any = await vitepressHelper({
+    directory: 'docs',
+    collapsible: true
+  });
+  return{
+    ...
+    nav: instance.nav,
+  }
+};
+```
+
+也可以根据自审需求，扩展 nav。
+
+```js
+export default () => {
+  return {
+    nav: [
+      ...instance.nav,
+      { text: 'other', link: 'https://github.com/huyikai/vitepress-helper' },
+      { text: 'others', items:[...] }
+    ]
+  };
+};
+```
