@@ -5,7 +5,7 @@
 ## 使用
 
 ```shell
-npx @huyikai/vitepress-Helper init
+npx @huyikai/vitepress-helper init
 ```
 
 将会被问到一些简单的问题：

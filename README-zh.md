@@ -30,12 +30,12 @@
 
 目前规划了两种使用方式：
 1.使用脚手架初始化（推荐），开箱即用。
-2.在已有的 vitepress 项目中添加依赖 `@huyikai/vitepress-Helper`，并手动修改设置(config.js)和主题(theme)。
+2.在已有的 vitepress 项目中添加依赖 `@huyikai/vitepress-helper`，并手动修改设置(config.js)和主题(theme)。
 
 ### 1. CLI
 
 ```shell
-npx @huyikai/vitepress-Helper init
+npx @huyikai/vitepress-helper init
 ```
 
 将会被问到一些简单的问题：
@@ -52,7 +52,7 @@ npx @huyikai/vitepress-Helper init
 ### 2. 添加依赖
 
 ```shell
-npm @huyikai/vitepress-Helper
+npm @huyikai/vitepress-helper
 ```
 
 ```javascript

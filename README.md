@@ -32,12 +32,12 @@ On the basis of [vitepress](https://vitepress.vuejs.org), optimize the user expe
 Currently, two usage methods are planned:
 
 1. Using the scaffolding initialization (recommended), you can get started directly.
-2. Add the dependency `@huyikai/vitepress-Helper` to an existing vitepress project and manually modify the config and theme.
+2. Add the dependency `@huyikai/vitepress-helper` to an existing vitepress project and manually modify the config and theme.
 
 ### Cli Init
 
 ```shell
-npx @huyikai/vitepress-Helper init
+npx @huyikai/vitepress-helper init
 ```
 
 You will be greeted with a few simple questions:
@@ -54,7 +54,7 @@ After the initialization is complete, you can run `npm run dev` to preview or ru
 ### 2. Add Dependency
 
 ```shell
-npm @huyikai/vitepress-Helper
+npm @huyikai/vitepress-helper
 ```
 
 ```javascript

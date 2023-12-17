@@ -6,7 +6,7 @@
 
 通过脚手架创建项目时，`config.js` 中已默认配置好导航栏相关配置。直接使用即可。
 
-后续补充导航栏自动生成的功能，需要先运行 `npm install @huyikai/vitepress-Helper -D` 安装依赖，然后修改 `docs/.vitepress/config.js` 中的配置。
+后续补充导航栏自动生成的功能，需要先运行 `npm install @huyikai/vitepress-helper -D` 安装依赖，然后修改 `docs/.vitepress/config.js` 中的配置。
 
 ```js
 import vitepressHelper from '@huyikai/vitepress-helper';
