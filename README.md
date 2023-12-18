@@ -16,7 +16,14 @@ On the basis of [vitepress](https://vitepress.vuejs.org), optimize the user expe
 
 ## ToDo
 
-- Internationalization: Modify the Sidebar and Navbar methods to adapt to internationalization settings
+- Internationalization compatibility: Modify the methods for generating sidebar and navigation bar to adapt to internationalization settings.
+- CMS:
+  - Optimize the experience of using Markdown editor.
+  - Move files and directories, and drag and drop.
+  - Import local files and batch processing.
+  - Import linked content.
+  - Version control.
+  - Management of static resources (images).
 
 ## Long-term Plan
 

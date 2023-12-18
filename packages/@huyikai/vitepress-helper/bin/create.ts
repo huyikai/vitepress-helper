@@ -9,7 +9,7 @@ interface Answers {
   cms: boolean;
   version: string;
 }
-
+const packageVersion = '0.0.0';
 // 获取当前工作目录
 const cwd = process.cwd();
 
@@ -23,7 +23,9 @@ export default async (answers: Answers) => {
 
   // 初始化package.json
   execSync('npm init -y');
-  execSync('npm install @huyikai/vitepress-helper', { stdio: 'inherit' });
+  execSync(`npm install @huyikai/vitepress-helper@${packageVersion}`, {
+    stdio: 'inherit'
+  });
   // execSync('npm link @huyikai/vitepress-helper');
 
   // 模板文件的路径
@@ -45,7 +47,7 @@ export default async (answers: Answers) => {
     packageInfo.scripts['cms'] = cms
       ? 'node node_modules/@huyikai/local-cms/cms.js docs'
       : undefined;
-    packageInfo.devDependencies['@huyikai/vitepress-helper'] = '^0.0.11';
+    packageInfo.devDependencies['@huyikai/vitepress-helper'] = `^${packageVersion}`;
     packageInfo.devDependencies['@huyikai/local-cms'] = cms
       ? 'latest'
       : undefined;

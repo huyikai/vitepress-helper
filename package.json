@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@huyikai/local-cms": "^0.0.1",
-    "@huyikai/vitepress-helper": "^0.0.8",
+    "@huyikai/vitepress-helper": "^0.0.15",
     "git-cz": "^4.9.0",
     "vitepress": "^1.0.0-rc.31",
     "vue": "^3.3.9"
