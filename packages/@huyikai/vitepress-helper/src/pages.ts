@@ -23,15 +23,22 @@ const compareDate = (obj1: Page, obj2: Page) => {
 
 export default async (params: InitParams) => {
   const { directory } = params;
+  const getNonRootKeys = (obj: any) => {
+    return Object.keys(obj).filter((key) => key !== 'root');
+  };
+
+  const localesArray = getNonRootKeys(params.locales).map(
+    (item) => `${directory}/${item}`
+  );
+
   // 使用globby查找所有的md文件
   const paths = await globby([`${directory}/**/**.md`], {
-    ignore: ['node_modules', 'README.md', 'packages'] // 忽略的文件夹和文件
+    ignore: ['node_modules', 'README.md', 'packages', ...localesArray] // 忽略的文件夹和文件
   });
   // 使用Promise.all并发读取所有md文件的内容
   let pages: Page[] = await Promise.all(
     paths.map(async (item: string) => {
       const content = await fs.readFile(item, 'utf-8'); // 读取md文件的内容
-      // console.log(content);
       const matterData = matter(content); // 解析md文件的内容
       return {
         frontMatter: matterData.data, // 获取md文件的前置元数据

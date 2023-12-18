@@ -8,10 +8,10 @@ export default async (
 ) => {
   const pages: any = await handleFetchPages(params);
   const commonParams = { pages, ...params };
-
   return {
     nav: nav(commonParams),
     sidebar: sidebar(commonParams),
-    pages
+    pages,
+    locales: params.locales
   };
 };
