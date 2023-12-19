@@ -1,6 +1,6 @@
 # VitePress-Helper
 
-![npm](https://img.shields.io/npm/v/%40huyikai%2Fvitepress-helper)![npm](https://img.shields.io/npm/dw/%40huyikai%2Fvitepress-helper)![GitHub License](https://img.shields.io/github/license/huyikai/vitepress-helper)
+![npm-version](https://flat.badgen.net/npm/v/@huyikai/vitepress-helper)![node-version](https://flat.badgen.net/npm/node/@huyikai/vitepress-helper)![npm-downloads](https://flat.badgen.net/npm/dw/@huyikai/vitepress-helper)![license](https://flat.badgen.net/npm/license/@huyikai/vitepress-helper)
 
 ## 简介
 

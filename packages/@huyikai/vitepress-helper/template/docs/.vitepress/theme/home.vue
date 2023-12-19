@@ -18,7 +18,7 @@ import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vu
         size="medium"
         theme="brand"
         text="Guide"
-        href="/Guide/Basic/Introduction.html"
+        href="/Guide/Basic/1.Introduction.html"
       >
       </VPButton>
       <VPButton
@@ -34,11 +34,37 @@ import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vu
         size="medium"
         theme="alt"
         text="Github"
-        href="https://github.com/huyikai/vitepress-helper"
+        href="https://github.com/vitepress-custom"
       >
       </VPButton>
     </div>
   </div>
+  <p
+    style="
+      white-space: nowrap;
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 10px;
+      justify-content: center;
+    "
+  >
+    <img
+      src="https://flat.badgen.net/npm/v/@huyikai/vitepress-helper"
+      alt="npm-version"
+    />
+    <img
+      src="https://flat.badgen.net/npm/node/@huyikai/vitepress-helper"
+      alt="node-version"
+    />
+    <img
+      src="https://flat.badgen.net/npm/dw/@huyikai/vitepress-helper"
+      alt="npm-downloads"
+    />
+    <img
+      src="https://flat.badgen.net/npm/license/@huyikai/vitepress-helper"
+      alt="license"
+    />
+  </p>
   <VPDoc />
 </template>
 <style>

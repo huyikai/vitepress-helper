@@ -39,6 +39,32 @@ import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vu
       </VPButton>
     </div>
   </div>
+  <p
+    style="
+      white-space: nowrap;
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 10px;
+      justify-content: center;
+    "
+  >
+    <img
+      src="https://flat.badgen.net/npm/v/@huyikai/vitepress-helper"
+      alt="npm-version"
+    />
+    <img
+      src="https://flat.badgen.net/npm/node/@huyikai/vitepress-helper"
+      alt="node-version"
+    />
+    <img
+      src="https://flat.badgen.net/npm/dw/@huyikai/vitepress-helper"
+      alt="npm-downloads"
+    />
+    <img
+      src="https://flat.badgen.net/npm/license/@huyikai/vitepress-helper"
+      alt="license"
+    />
+  </p>
   <VPDoc />
 </template>
 <style>

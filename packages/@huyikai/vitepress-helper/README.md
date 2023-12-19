@@ -1,5 +1,7 @@
 # VitePress-Helper
 
+![npm-version](https://flat.badgen.net/npm/v/@huyikai/vitepress-helper)![node-version](https://flat.badgen.net/npm/node/@huyikai/vitepress-helper)![npm-downloads](https://flat.badgen.net/npm/dw/@huyikai/vitepress-helper)![license](https://flat.badgen.net/npm/license/@huyikai/vitepress-helper)
+
 [简体中文](./README-zh.md)
 
 ## Brief
@@ -16,7 +18,14 @@ On the basis of [vitepress](https://vitepress.vuejs.org), optimize the user expe
 
 ## ToDo
 
-- Internationalization: Modify the Sidebar and Navbar methods to adapt to internationalization settings
+- Internationalization compatibility: Modify the methods for generating sidebar and navigation bar to adapt to internationalization settings.
+- CMS:
+  - Optimize the experience of using Markdown editor.
+  - Move files and directories, and drag and drop.
+  - Import local files and batch processing.
+  - Import linked content.
+  - Version control.
+  - Management of static resources (images).
 
 ## Long-term Plan
 
