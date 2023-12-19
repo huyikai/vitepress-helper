@@ -1,5 +1,7 @@
 # VitePress-Helper
 
+![npm](https://img.shields.io/npm/v/%40huyikai%2Fvitepress-helper)![npm](https://img.shields.io/npm/dw/%40huyikai%2Fvitepress-helper)![GitHub License](https://img.shields.io/github/license/huyikai/vitepress-helper)
+
 [简体中文](./README-zh.md)
 
 ## Brief

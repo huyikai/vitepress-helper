@@ -1,5 +1,7 @@
 # VitePress-Helper
 
+![npm](https://img.shields.io/npm/v/%40huyikai%2Fvitepress-helper)![npm](https://img.shields.io/npm/dw/%40huyikai%2Fvitepress-helper)![GitHub License](https://img.shields.io/github/license/huyikai/vitepress-helper)
+
 ## 简介
 
 在 [vitepress](https://vitepress.vuejs.org) 基础上优化使用体验。
@@ -34,9 +36,7 @@
 
 ## 使用
 
-目前规划了两种使用方式：
-1.使用脚手架初始化（推荐），开箱即用。
-2.在已有的 vitepress 项目中添加依赖 `@huyikai/vitepress-helper`，并手动修改设置(config.js)和主题(theme)。
+目前规划了两种使用方式： 1.使用脚手架初始化（推荐），开箱即用。 2.在已有的 vitepress 项目中添加依赖 `@huyikai/vitepress-helper`，并手动修改设置(config.js)和主题(theme)。
 
 ### 1. CLI
 
