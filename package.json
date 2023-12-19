@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@huyikai/local-cms": "^0.0.1",
-    "@huyikai/vitepress-helper": "^0.0.15",
+    "@huyikai/vitepress-helper": "latest",
     "@release-it/bumper": "^6.0.1",
     "git-cz": "^4.9.0",
     "vitepress": "^1.0.0-rc.31",
