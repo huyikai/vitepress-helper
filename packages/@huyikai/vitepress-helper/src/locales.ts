@@ -27,7 +27,9 @@ export default (params: any) => {
             (navItem: any) =>
               !navItem.link || navItem.link.split('/')[2] !== 'index.md'
           ),
-          ...params?.themeConfig?.nav
+          ...(params?.themeConfig?.nav && Array.isArray(params.themeConfig.nav)
+            ? [...params.themeConfig.nav]
+            : [])
         ],
         sidebar: {
           [`/${locale}/`]: sidebar({
