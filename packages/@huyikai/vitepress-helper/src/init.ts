@@ -1,4 +1,3 @@
-// import type { InitParams } from './../types/init';
 import fetchAllPages from './pages';
 import locales from './locales';
 import nav from './nav';
