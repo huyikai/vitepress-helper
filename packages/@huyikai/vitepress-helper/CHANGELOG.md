@@ -1,5 +1,12 @@
 
 
+## [0.0.23](https://github.com/huyikai/vitepress-helper/compare/v0.0.22...v0.0.23) (2023-12-20)
+
+
+### Features
+
+* 🎸 expand nav ([3ceb6ed](https://github.com/huyikai/vitepress-helper/commit/3ceb6ed41360ac683b9e1283ce3a46f9583cd515))
+
 ## [0.0.22](https://github.com/huyikai/vitepress-helper/compare/v0.0.21...v0.0.22) (2023-12-20)
 
 
