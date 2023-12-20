@@ -26,10 +26,12 @@ export default async (params: InitParams) => {
   const getNonRootKeys = (obj: any) => {
     return Object.keys(obj).filter((key) => key !== 'root');
   };
-
-  const localesArray = getNonRootKeys(params.locales).map(
-    (item) => `${directory}/${item}`
-  );
+  let localesArray: any = [];
+  if (params?.locales) {
+    localesArray = getNonRootKeys(params.locales).map(
+      (item) => `${directory}/${item}`
+    );
+  }
 
   // 使用globby查找所有的md文件
   const paths = await globby([`${directory}/**/**.md`], {

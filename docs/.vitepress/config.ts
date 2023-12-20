@@ -2,17 +2,7 @@ import vitepressHelper from '@huyikai/vitepress-helper';
 export default async () => {
   const instance: any = await vitepressHelper({
     directory: 'docs',
-    collapsible: true,
-    locales: {
-      root: {
-        label: '简体中文',
-        lang: 'zh'
-      },
-      en: {
-        label: 'English',
-        lang: 'en'
-      }
-    }
+    collapsible: true
   });
   return {
     base: '/vitepress-helper/',
@@ -61,7 +51,6 @@ export default async () => {
         prev: 'Pervious',
         next: 'Next'
       }
-    },
-    locales: instance.locales
+    }
   };
 };

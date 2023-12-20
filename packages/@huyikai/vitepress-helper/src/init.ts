@@ -12,6 +12,6 @@ export default async (
     nav: nav(commonParams),
     sidebar: sidebar(commonParams),
     pages,
-    locales: params.locales
+    locales: params?.locales
   };
 };
