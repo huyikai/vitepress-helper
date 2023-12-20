@@ -14,18 +14,21 @@ export default (params: any) => {
     locales[locale] = {
       ...params.locales[locale],
       themeConfig: {
-        nav: nav({
-          directory,
-          pages: pages.filter((pagesItem: any) => {
-            return (
-              pagesItem.link.split('/').slice(0, 2).join('/') ===
-              `${directory}/${locale}`
-            );
-          })
-        })[0].items.filter(
-          (navItem: any) =>
-            !navItem.link || navItem.link.split('/')[2] !== 'index.md'
-        ),
+        nav: [
+          ...nav({
+            directory,
+            pages: pages.filter((pagesItem: any) => {
+              return (
+                pagesItem.link.split('/').slice(0, 2).join('/') ===
+                `${directory}/${locale}`
+              );
+            })
+          })[0].items.filter(
+            (navItem: any) =>
+              !navItem.link || navItem.link.split('/')[2] !== 'index.md'
+          ),
+          ...params?.themeConfig?.nav
+        ],
         sidebar: {
           [`/${locale}/`]: sidebar({
             directory,
