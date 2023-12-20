@@ -1,5 +1,12 @@
 
 
+## [0.0.22](https://github.com/huyikai/vitepress-helper/compare/v0.0.21...v0.0.22) (2023-12-20)
+
+
+### Features
+
+* 🎸 Internationalization ([20305c8](https://github.com/huyikai/vitepress-helper/commit/20305c867adaf8cf77bb7045007b8efc799daf86))
+
 ## [0.0.21](https://github.com/huyikai/vitepress-helper/compare/v0.0.20...v0.0.21) (2023-12-20)
 
 
