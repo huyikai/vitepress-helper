@@ -1,5 +1,12 @@
 
 
+## [0.0.24](https://github.com/huyikai/vitepress-helper/compare/v0.0.23...v0.0.24) (2023-12-20)
+
+
+### Bug Fixes
+
+* 🐛 nav ([66e53ec](https://github.com/huyikai/vitepress-helper/commit/66e53ecc0e071ca766161916a9bc6adc51ad5d6e))
+
 ## [0.0.23](https://github.com/huyikai/vitepress-helper/compare/v0.0.22...v0.0.23) (2023-12-20)
 
 
