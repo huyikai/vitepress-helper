@@ -1,7 +1,7 @@
-import fetchAllPages from './pages';
-import locales from './locales';
-import nav from './nav';
-import sidebar from './sidebar';
+import fetchAllPages from "./pages";
+import locales from "./locales";
+import nav from "./nav";
+import sidebar from "./sidebar";
 
 export default async (params: any) => {
   const pages: any = await fetchAllPages(params);
@@ -10,8 +10,8 @@ export default async (params: any) => {
   const themeConfig = params?.themeConfig
     ? {
         ...params?.themeConfig,
-        nav: [...nav(baseParams), ...params?.themeConfig?.nav],
-        sidebar: sidebar(baseParams)
+        nav: [...nav(baseParams), ...(params?.themeConfig?.nav || [])],
+        sidebar: sidebar(baseParams),
       }
     : undefined;
   return {
@@ -20,6 +20,6 @@ export default async (params: any) => {
     pages: pages.basePages,
     ...params,
     themeConfig,
-    locales: locales(localesParams)
+    locales: locales(localesParams),
   };
 };
