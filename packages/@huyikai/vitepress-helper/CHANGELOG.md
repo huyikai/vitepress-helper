@@ -1,5 +1,7 @@
 
 
+## [0.0.25](https://github.com/huyikai/vitepress-helper/compare/v0.0.24...v0.0.25) (2023-12-20)
+
 ## [0.0.24](https://github.com/huyikai/vitepress-helper/compare/v0.0.23...v0.0.24) (2023-12-20)
 
 
