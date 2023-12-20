@@ -1,5 +1,12 @@
 
 
+## [0.0.21](https://github.com/huyikai/vitepress-helper/compare/v0.0.20...v0.0.21) (2023-12-20)
+
+
+### Bug Fixes
+
+* 🐛 locales config bug fix ([ebd3833](https://github.com/huyikai/vitepress-helper/commit/ebd38339b8d76c45dca818c434744d2f55b2e1ec))
+
 ## [0.0.20](https://github.com/huyikai/vitepress-helper/compare/v0.0.19...v0.0.20) (2023-12-19)
 
 ## [0.0.19](https://github.com/huyikai/vitepress-helper/compare/v0.0.18...v0.0.19) (2023-12-19)

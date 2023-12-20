@@ -1,6 +1,6 @@
 {
   "name": "@huyikai/vitepress-helper",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "private": false,
   "description": "This tool is designed to help you to use VitePress more easily.",
   "keywords": [
