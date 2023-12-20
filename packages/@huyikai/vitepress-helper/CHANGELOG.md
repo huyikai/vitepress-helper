@@ -1,5 +1,12 @@
 
 
+## [0.0.26](https://github.com/huyikai/vitepress-helper/compare/v0.0.25...v0.0.26) (2023-12-20)
+
+
+### Bug Fixes
+
+* 🐛 fix init error ([a84f7f9](https://github.com/huyikai/vitepress-helper/commit/a84f7f97afe30fe57265ad02d5369de3db3d38b1))
+
 ## [0.0.25](https://github.com/huyikai/vitepress-helper/compare/v0.0.24...v0.0.25) (2023-12-20)
 
 ## [0.0.24](https://github.com/huyikai/vitepress-helper/compare/v0.0.23...v0.0.24) (2023-12-20)
