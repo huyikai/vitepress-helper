@@ -2,7 +2,21 @@ import vitepressHelper from '@huyikai/vitepress-helper';
 export default async () => {
   const instance: any = await vitepressHelper({
     directory: 'docs',
-    collapsible: true
+    collapsible: true,
+    locales: {
+      root: {
+        label: '简体中文',
+        lang: 'zh'
+      },
+      en: {
+        label: 'English',
+        lang: 'en'
+      },
+      jp: {
+        label: '日本語で',
+        lang: 'jp'
+      }
+    }
   });
   return {
     base: '/vitepress-helper/',
@@ -12,7 +26,6 @@ export default async () => {
       ['link', { rel: 'icon', href: '/vitepress-helper/favicon.ico' }] //浏览器标签icon
     ],
     themeConfig: {
-      // pages: page, // 所有页面
       siteTitle: 'VitePress-Helper', //导航栏左侧名称
       logo: '/static/nav-logo.svg', //导航栏左侧头像
       lastUpdated: true, //最后更新时间
@@ -51,6 +64,10 @@ export default async () => {
         prev: 'Pervious',
         next: 'Next'
       }
+    },
+    locales: instance.locales,
+    sitemap: {
+      hostname: 'https://huyikai.github.io/vitepress-helper/'
     }
   };
 };

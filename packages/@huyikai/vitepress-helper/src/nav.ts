@@ -18,11 +18,7 @@ export default (params: NavParams) => {
   );
 
   const rootTree = sortArray(
-    rootPages.map((item: any) => ({
-      ...item,
-      text: item.link === 'index.md' ? 'Home' : item.text,
-      link: `/${item.link}`
-    })),
+    rootPages.filter((item) => !item.link.includes('index.md')),
     'text'
   );
   const subTree = buildSubTree({

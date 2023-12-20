@@ -52,7 +52,7 @@ interface Params {
   directory: String;
   transformItem: Function;
 }
-export const buildSubTree = (params: Params) => {
+export const buildSubTree = (params: Params, isLocales?: boolean) => {
   const { pages, directory, transformItem } = params;
   const subPages = transformPagesArray(pages, directory).filter(
     (page: any) => page.level > 0

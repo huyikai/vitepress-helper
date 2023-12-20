@@ -32,10 +32,9 @@ export default async (params: InitParams) => {
       (item) => `${directory}/${item}`
     );
   }
-
   // 使用globby查找所有的md文件
   const paths = await globby([`${directory}/**/**.md`], {
-    ignore: ['node_modules', 'README.md', 'packages', ...localesArray] // 忽略的文件夹和文件
+    ignore: ['node_modules', 'README.md', 'packages'] // 忽略的文件夹和文件
   });
   // 使用Promise.all并发读取所有md文件的内容
   let pages: Page[] = await Promise.all(
@@ -60,7 +59,17 @@ export default async (params: InitParams) => {
     (item: Page) =>
       !item.frontMatter.page || item.link.includes(`${directory}/`)
   );
-
+  const basePages = pages.filter(
+    (item) => !localesArray.includes(item.link.split('/').slice(0, 2).join('/'))
+  );
+  const localesPages = pages.filter((item) =>
+    localesArray.includes(item.link.split('/').slice(0, 2).join('/'))
+  );
   pages.sort(compareDate);
-  return pages;
+  return {
+    basePages,
+    localesPages
+  };
 };
+
+// export const localesPages = async (params: InitParams) => {};

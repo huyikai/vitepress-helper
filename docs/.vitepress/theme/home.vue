@@ -1,6 +1,16 @@
 <script setup lang="ts">
+import { useData } from 'vitepress';
+
 import VPDoc from 'vitepress/dist/client/theme-default/components/VPDoc.vue';
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
+
+const vitePressData = useData();
+const { localeIndex } = vitePressData;
+const textMap = {
+  root: '帮助您更轻松地使用VitePress',
+  en: 'help you to use VitePress more easily.',
+  jp: 'VitePressをより簡単に使いこなすためのヘルプです。'
+};
 </script>
 <template>
   <div class="hero">
@@ -10,7 +20,7 @@ import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vu
       alt="vitepress-helper"
     />
     <div class="name">VitePress-Helper</div>
-    <div class="text">enhance vitepress experience</div>
+    <div class="text">{{ textMap[localeIndex] }}</div>
 
     <div class="buttons">
       <VPButton
@@ -18,7 +28,9 @@ import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vu
         size="medium"
         theme="brand"
         text="Guide"
-        href="/Guide/Basic/1.Introduction.html"
+        :href="`${
+          localeIndex === 'root' ? '' : `/${localeIndex}`
+        }/Guide/Basic/1.Introduction.html`"
       >
       </VPButton>
       <VPButton
