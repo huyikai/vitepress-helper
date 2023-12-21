@@ -67,7 +67,7 @@ const vitepressConfig = {
 };
 
 export default async () => {
-  const instance: any = await vitepressHelper({
+  const instance = await vitepressHelper({
     ...vitepressHelperConfig,
     ...vitepressConfig
   });

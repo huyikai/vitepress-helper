@@ -17,7 +17,11 @@
 
 ## 使用
 
-请参阅 [vitepress-helper](https://huyikai.github.io/vitepress-helper/) 文档进行操作。
+```shell
+npx @huyikai/vitepress-helper init
+```
+
+详情使用请参阅 [vitepress-helper](https://huyikai.github.io/vitepress-helper/) 文档进行操作。
 
 ## 短期计划
 

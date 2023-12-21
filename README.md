@@ -19,7 +19,11 @@ Optimized user experience based on [vitepress](https://vitepress.vuejs.org).
 
 ## Usage
 
-Please refer to the [vitepress-helper](https://huyikai.github.io/vitepress-helper/) document for operation.
+```shell
+npx @huyikai/vitepress-helper init
+```
+
+For detailed usage, please refer to the [vitepress-helper](https://huyikai.github.io/vitepress-helper/) documentation for operation.
 
 ## Short-term Plan
 
