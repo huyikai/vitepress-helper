@@ -37,16 +37,8 @@ const textMap = {
         tag="a"
         size="medium"
         theme="sponsor"
-        text="Example"
-        href="https://huyikai.xyz"
-      >
-      </VPButton>
-      <VPButton
-        tag="a"
-        size="medium"
-        theme="alt"
         text="Github"
-        href="https://github.com/vitepress-custom"
+        href="https://github.com/huyikai/vitepress-helper"
       >
       </VPButton>
     </div>
