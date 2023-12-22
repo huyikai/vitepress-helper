@@ -1,4 +1,7 @@
-import vitepressHelper from '@huyikai/vitepress-helper';
+import vitepressHelper, { config } from '@huyikai/vitepress-helper';
+
+import { defineConfigWithTheme } from 'vitepress';
+
 const vitepressHelperConfig = {
   directory: 'docs',
   collapsible: true
@@ -71,5 +74,5 @@ export default async () => {
     ...vitepressHelperConfig,
     ...vitepressConfig
   });
-  return instance;
+  return defineConfigWithTheme({ extends: config, ...instance });
 };

@@ -20,16 +20,22 @@
   "author": "huyikai",
   "type": "module",
   "main": "lib/index.esm.js",
+  "types": "lib/types/src/index.d.ts",
   "module": "lib/index.esm.js",
-  "types": "lib/types/index.d.ts",
   "bin": {
     "vitepress-helper": "./lib/bin/index.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./lib/types/src/index.d.ts",
+      "default": "./lib/index.esm.js"
+    },
+    "./theme/*": "./theme/*"
   },
   "files": [
     "lib",
     "template",
-    "theme",
-    "bin"
+    "theme"
   ],
   "scripts": {
     "build": "rollup --config rollup.config.ts --configPlugin typescript",
@@ -64,7 +70,7 @@
     "typescript": "^5.0.4"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "publishConfig": {
     "access": "public",

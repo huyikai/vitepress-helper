@@ -8,7 +8,7 @@ import VPLocalNav from 'vitepress/dist/client/theme-default/components/VPLocalNa
 import VPNav from './components/VPNav.vue'
 import VPSidebar from 'vitepress/dist/client/theme-default/components/VPSidebar.vue'
 import VPSkipLink from 'vitepress/dist/client/theme-default/components/VPSkipLink.vue'
-import { useData } from 'vitepress/dist/client/theme-default/composables/data'
+import { useData } from 'vitepress'
 import { useCloseSidebarOnEscape, useSidebar } from 'vitepress/dist/client/theme-default/composables/sidebar'
 
 const {

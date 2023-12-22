@@ -1,6 +1,7 @@
-import init from './init';
-import nav from './nav';
-import pages from './pages';
-import sidebar from './sidebar';
-export { pages, nav, sidebar, init };
-export default init;
+export { default as init } from './init';
+export { default as nav } from './nav';
+export { default as pages } from './pages';
+export { default as sidebar } from './sidebar';
+export { default as config } from './config';
+// export { default as theme } from './../theme';
+export { default } from './init';

@@ -3,11 +3,19 @@
   "extends": "./tsconfig.base.json",
   // 编译选项
   "compilerOptions": {
-    "outDir": "./lib/types", // 编译后生成的文件目录
+    "baseUrl": ".",
+    "outDir": "test",
+    "moduleResolution": "bundler",
+    "declarationDir": "lib/types"
   },
   "exclude": [
     "**/node_modules/**",
     "**/lib/**",
     "**.config.ts"
-  ]
+  ],
+  "paths": {
+    "@huyikai/vitepress-helper": [
+      "src/index.ts"
+    ]
+  }
 }

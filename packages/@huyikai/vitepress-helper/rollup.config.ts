@@ -3,7 +3,8 @@ import { fileURLToPath } from 'url';
 import fs from 'fs';
 import path from 'path';
 import terser from '@rollup/plugin-terser';
-import typescript from '@rollup/plugin-typescript';
+import typescript from 'rollup-plugin-typescript2';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const replaceVersion = () => {
   const packageJson = JSON.parse(
@@ -48,7 +49,7 @@ export default [
     ],
     plugins: [
       replaceVersion(),
-      typescript({ tsconfig: 'bin/tsconfig.json' }),
+      typescript(),
       terser(),
       addShebang({ include: 'lib/bin/index.js' })
     ]
