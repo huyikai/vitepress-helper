@@ -40,10 +40,10 @@ const vitepressConfig = {
       { icon: 'github', link: 'https://github.com/huyikai/vitepress-helper' }
     ],
     // 网站页脚
-    // footer: {
-    //   message: 'Released under the MIT License.',
-    //   copyright: 'Copyright © 2023'
-    // },
+    footer: {
+      message: 'Released under the MIT License.',
+      copyright: 'Copyright © 2023'
+    },
     // 文档页脚-上下页显示文字
     docFooter: {
       prev: 'Pervious',
