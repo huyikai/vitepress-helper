@@ -6,7 +6,9 @@
     "baseUrl": ".",
     "outDir": "test",
     "moduleResolution": "bundler",
-    "declarationDir": "lib/types"
+    "declarationDir": "lib/types",
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
   "exclude": [
     "**/node_modules/**",

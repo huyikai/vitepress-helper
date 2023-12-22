@@ -1,23 +1,21 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from 'vitepress';
+const packageVersion = '0.0.0';
 export default defineConfig({
   title: 'vitepres-helper',
   description: 'vitepres-helper.',
-  head: [
-    ['link', { rel: 'icon', href: '/vitepress-helper/favicon.ico' }] //浏览器标签icon
-  ],
   themeConfig: {
-    siteTitle: 'VitePress-Helper', //导航栏左侧名称
-    logo: '/static/nav-logo.svg', //导航栏左侧头像
-    outlineTitle: 'Catalog', //右侧 侧边栏标题
+    siteTitle: 'VitePress-Helper',
+    outlineTitle: 'Catalog',
     search: {
-      provider: 'local' // 离线搜索
+      provider: 'local'
     },
-    // 导航栏
-    nav: [
-      {
-        text: 'test',
-        link: 'https://huyikai.xyz'
-      }
-    ]
+    docFooter: {
+      prev: 'Pervious',
+      next: 'Next'
+    },
+    footer: {
+      message: `Released under the <a href="https://github.com/huyikai/vitepress-helper/blob/master/license">MIT</a> License. Based on <a href="https://github.com/huyikai/vitepress-helper">vitepress-helper.v${packageVersion}</a>`,
+      copyright: 'Copyright © 2023'
+    }
   }
 });

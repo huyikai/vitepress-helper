@@ -15,7 +15,7 @@ const replaceVersion = () => {
   return {
     name: 'replace-version',
     transform(code, id) {
-      if (id.endsWith('create.ts')) {
+      if (id.endsWith('create.ts')||id.endsWith('config.ts')) {
         return code.replace(
           /const packageVersion = '[^']*'/,
           `const packageVersion = '${version}'`
@@ -36,7 +36,7 @@ export default [
         sourcemap: true
       }
     ],
-    plugins: [typescript(), terser()]
+    plugins: [typescript(), terser(),replaceVersion()]
   },
   {
     input: 'bin/index.ts',
