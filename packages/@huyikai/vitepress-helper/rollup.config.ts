@@ -3,7 +3,7 @@ import { fileURLToPath } from 'url';
 import fs from 'fs';
 import path from 'path';
 import terser from '@rollup/plugin-terser';
-import typescript from 'rollup-plugin-typescript2';
+import typescript from '@rollup/plugin-typescript';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const replaceVersion = () => {
