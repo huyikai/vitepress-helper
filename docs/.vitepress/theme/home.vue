@@ -7,7 +7,7 @@ import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vu
 const vitePressData = useData();
 const { localeIndex } = vitePressData;
 const textMap = {
-  root: '帮助您更轻松地使用VitePress',
+  root: '帮助你更轻松地使用VitePress',
   en: 'help you to use VitePress more easily.',
   jp: 'VitePressをより簡単に使いこなすためのヘルプです。'
 };
