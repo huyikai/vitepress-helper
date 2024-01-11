@@ -4,7 +4,6 @@
   // 编译选项
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "test",
     "moduleResolution": "bundler",
     "declarationDir": "lib/types",
     "resolveJsonModule": true,
