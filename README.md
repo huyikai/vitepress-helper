@@ -42,9 +42,3 @@ For detailed usage, please refer to the [vitepress-helper](https://huyikai.githu
 - Experience: Optimize UI, usage logic, performance optimization.
 - Maintenance: Pay attention to the updates of vitepress, keep the functions and experience synchronized.
 - Exploration: Plan for new inspirations during the development and usage process.
-
-## License
-
-[MIT](./license)
-
-## [Repository](https://github.com/huyikai/vitepress-Helper)
