@@ -28,11 +28,11 @@
     "release": "npm run release --workspaces"
   },
   "devDependencies": {
-    "@huyikai/local-cms": "^0.0.1",
+    "@huyikai/local-cms": "^0.0.27",
     "@huyikai/vitepress-helper": "latest",
     "@release-it/bumper": "^6.0.1",
     "git-cz": "^4.9.0",
-    "vitepress": "^1.0.0-rc.31",
+    "vitepress": "^1.0.0-rc.45",
     "vue": "^3.3.9"
   },
   "release-it": {
